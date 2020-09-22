@@ -1,0 +1,93 @@
+{
+  "name": "@fransvilhelm/email-devtools",
+  "version": "0.0.0",
+  "description": "Email development devtools",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adambrgmn/email-devtools.git"
+  },
+  "author": {
+    "name": "Adam Bergman",
+    "email": "adam@fransvilhelm.com"
+  },
+  "homepage": "https://github.com/adambrgmn/email-devtools#readme",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --ext .ts --ext .tsx --ext .js",
+    "test": "jest",
+    "type-check": "tsc --noEmit",
+    "release": "yarn build && yarn changeset publish"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@changesets/cli": "^2.10.3",
+    "@fransvilhelm/changeset-changelog": "^1.0.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "@types/testing-library__jest-dom": "^5.9.2",
+    "@types/testing-library__react": "^10.2.0",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3"
+  },
+  "bugs": {
+    "url": "https://github.com/adambrgmn/email-devtools/issues"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "import/order": [
+        "warn",
+        {
+          "newlines-between": "always",
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            [
+              "parent",
+              "sibling",
+              "index"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{js,ts,jsx,tsx,json,md,yml,html}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "proseWrap": "always"
+  }
+}
